@@ -1,0 +1,9 @@
+# config/routes.yaml
+api_login_check:
+    path: /api/login
+
+categorie_reset:
+    path: '/categories/{id}/reset'
+    controller: App\Controller\CategorieResetController::resetCategorie
+    methods: [PUT]
+
