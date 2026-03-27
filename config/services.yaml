@@ -28,3 +28,9 @@ services:
         tags: [ 'controller.service_arguments' ]
     App\Controller\SousCategorieUploadController:
         tags: [ controller.service_arguments ]
+    App\Controller\UserUplouadController:
+        tags: ['controller.service_arguments']
+    
+    App\Controller\ImageUploadController:
+        tags: ['controller.service_arguments']
+  

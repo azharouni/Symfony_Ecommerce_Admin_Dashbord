@@ -19,23 +19,31 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 #[Vich\Uploadable]
 #[ApiResource(
-    collectionOperations: [
 
-
-        'post' => [
-
-            'controller'=>ImageUploadController::class,
-            'deserialize' => false
-
+        collectionOperations: [
+            'post' => [
+    
+                'controller'=>ImageUploadController::class,
+                'deserialize' => false
+            ],
+            'get' => [
+                'path' => '/categories/',
+    
+            ],
+    
         ],
-        'get' => [
-            'path' => '/categories/',
-
-        ],
-
-    ]
-
-)]
+        itemOperations: [
+            'get',
+            'put' => [
+              
+                'deserialize' => false,
+            ],
+            'patch' =>[
+                'deserialize' => false,
+            ]
+        ]
+    
+    )]
 
 
 class Categorie

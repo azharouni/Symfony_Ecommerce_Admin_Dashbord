@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\UserUplouadController;
 use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,7 +12,23 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    collectionOperations: [
+
+
+        'post' => [
+
+            'controller'=>UserUplouadController::class,
+            'deserialize' => false
+
+        ],
+        'get' => [
+            'path' => '/users/',
+
+        ],
+
+    ],
+)] 
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
